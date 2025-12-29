@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Озвучка</title>
-</head>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Озвучка</title></head>
 <body>
-
-<textarea id="text" placeholder="Texto en español"></textarea><br><br>
-<select id="voice"></select><br><br>
-<button id="speak">🔊 Озвучить</button>
-
+<textarea placeholder="Текст"></textarea><br><br>
+<select><option>Голос 1</option></select><br><br>
+<button onclick="play()">🔊 Озвучить</button><br><br>
+<audio id="a" controls></audio>
 <script src="app.js"></script>
 </body>
 </html>
