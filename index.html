@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Озвучка текста</title>
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <h2>Озвучка испанского текста</h2>
+
+  <textarea id="text" placeholder="Вставьте текст на испанском"></textarea><br><br>
+
+  <select id="voice">
+    <option value="es-ES-Standard-A">Мужской</option>
+    <option value="es-ES-Standard-B">Женский</option>
+  </select><br><br>
+
+  <button onclick="generate()">🔊 Озвучить</button><br><br>
+
+  <audio id="player" controls></audio><br><br>
+  <a id="download" download="voice.mp3" style="display:none;">💾 Скачать MP3</a>
+
+  <script src="/app.js"></script>
+</body>
+</html>
