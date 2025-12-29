@@ -1,3 +1,5 @@
 {
- "builds":[{"src":"api/tts.js","use":"@vercel/node"}]
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }

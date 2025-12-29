@@ -1,23 +1,21 @@
-const textEl=document.getElementById('text');
-const voiceEl=document.getElementById('voice');
-const audioEl=document.getElementById('audio');
-const dl=document.getElementById('download');
+const synth=speechSynthesis;
+const voiceSel=document.getElementById('voice');
 
-document.getElementById('btnPreview').onclick=()=>{
- audioEl.src='/voice1.wav';
- audioEl.play();
-};
-
-document.getElementById('btnGen').onclick=async()=>{
- if(!textEl.value) return;
- const r=await fetch('/api/tts',{
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({text:textEl.value,voice:voiceEl.value})
+function load(){
+ const v=synth.getVoices().filter(x=>x.lang.startsWith('es'));
+ voiceSel.innerHTML='';
+ v.forEach((x,i)=>{
+  const o=document.createElement('option');
+  o.value=i;o.textContent=x.name;
+  voiceSel.appendChild(o);
  });
- const b=await r.blob();
- const u=URL.createObjectURL(b);
- audioEl.src=u;
- dl.href=u;
- dl.style.display='inline';
+}
+synth.onvoiceschanged=load;load();
+
+document.getElementById('speak').onclick=()=>{
+ const t=document.getElementById('text').value;
+ if(!t)return;
+ const u=new SpeechSynthesisUtterance(t);
+ u.voice=synth.getVoices().filter(x=>x.lang.startsWith('es'))[voiceSel.value];
+ synth.speak(u);
 };

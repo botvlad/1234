@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Озвучка</title></head>
+<head>
+<meta charset="UTF-8">
+<title>Озвучка</title>
+</head>
 <body>
 
-<textarea id="text" placeholder="Текст"></textarea><br><br>
-
-<select id="voice">
-  <option value="es-ES-Standard-A">Голос 1</option>
-  <option value="es-ES-Standard-B">Голос 2</option>
-</select><br><br>
-
-<button id="btnPreview">▶ Пример</button>
-<button id="btnGen">🔊 Озвучить</button><br><br>
-
-<audio id="audio" controls></audio><br><br>
-<a id="download" download="voice.mp3" style="display:none;">Скачать</a>
+<textarea id="text" placeholder="Texto en español"></textarea><br><br>
+<select id="voice"></select><br><br>
+<button id="speak">🔊 Озвучить</button>
 
 <script src="app.js"></script>
 </body>
