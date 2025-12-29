@@ -2,25 +2,24 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Озвучка</title>
+<title>Озвучка текста</title>
 <style>
-#loader{display:none;font-weight:bold;}
+body{font-family:sans-serif}
+#loader{display:none;font-weight:bold}
 </style>
 </head>
 <body>
 
-<h3>Озвучка текста</h3>
+<h3>Озвучка текста (испанский)</h3>
 
-<textarea placeholder="Текст (не влияет)"></textarea><br><br>
+<textarea id="text" placeholder="Введите текст на испанском" rows="5" cols="40"></textarea><br><br>
 
-<select>
-  <option>Голос 1</option>
+<select id="voice">
+  <option value="es-ES">Голос 1</option>
 </select><br><br>
 
 <button id="btn">🔊 Озвучить</button>
-<span id="loader">⏳ Генерация...</span><br><br>
-
-<audio id="audio" controls></audio>
+<span id="loader">⏳ Озвучка...</span>
 
 <script src="app.js"></script>
 </body>

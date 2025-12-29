@@ -1,12 +1,13 @@
 const btn=document.getElementById('btn');
-const audio=document.getElementById('audio');
 const loader=document.getElementById('loader');
 
 btn.addEventListener('click',()=>{
+ const text=document.getElementById('text').value;
+ if(!text) return;
  loader.style.display='inline';
- setTimeout(()=>{
-  audio.src='voice1.wav';
-  audio.play();
-  loader.style.display='none';
- },600);
+ const u=new SpeechSynthesisUtterance(text);
+ u.lang='es-ES';
+ u.onend=()=>loader.style.display='none';
+ speechSynthesis.cancel();
+ speechSynthesis.speak(u);
 });
