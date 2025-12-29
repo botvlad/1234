@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta charset="UTF-8"><title>Озвучка</title></head>
+<head>
+<meta charset="UTF-8">
+<title>Озвучка</title>
+<style>
+#loader{display:none;font-weight:bold;}
+</style>
+</head>
 <body>
-<textarea placeholder="Текст"></textarea><br><br>
-<select><option>Голос 1</option></select><br><br>
-<button onclick="play()">🔊 Озвучить</button><br><br>
-<audio id="a" controls></audio>
+
+<h3>Озвучка текста</h3>
+
+<textarea placeholder="Текст (не влияет)"></textarea><br><br>
+
+<select>
+  <option>Голос 1</option>
+</select><br><br>
+
+<button id="btn">🔊 Озвучить</button>
+<span id="loader">⏳ Генерация...</span><br><br>
+
+<audio id="audio" controls></audio>
+
 <script src="app.js"></script>
 </body>
 </html>

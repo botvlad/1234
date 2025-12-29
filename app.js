@@ -1,5 +1,12 @@
-function play(){
- const a=document.getElementById('a');
- a.src='voice1.wav';
- a.play();
-}
+const btn=document.getElementById('btn');
+const audio=document.getElementById('audio');
+const loader=document.getElementById('loader');
+
+btn.addEventListener('click',()=>{
+ loader.style.display='inline';
+ setTimeout(()=>{
+  audio.src='voice1.wav';
+  audio.play();
+  loader.style.display='none';
+ },600);
+});
