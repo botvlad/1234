@@ -1,28 +1,23 @@
-async function generate() {
-  const text = document.getElementById("text").value.trim();
-  const voice = document.getElementById("voice").value;
+const textEl=document.getElementById('text');
+const voiceEl=document.getElementById('voice');
+const audioEl=document.getElementById('audio');
+const dl=document.getElementById('download');
 
-  if (!text) {
-    alert("Введите текст");
-    return;
-  }
+document.getElementById('btnPreview').onclick=()=>{
+ audioEl.src='/voice1.wav';
+ audioEl.play();
+};
 
-  const res = await fetch("/api/tts", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, voice })
-  });
-
-  if (!res.ok) {
-    alert("Ошибка при генерации аудио");
-    return;
-  }
-
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-
-  document.getElementById("player").src = url;
-  const d = document.getElementById("download");
-  d.href = url;
-  d.style.display = "inline-block";
-}
+document.getElementById('btnGen').onclick=async()=>{
+ if(!textEl.value) return;
+ const r=await fetch('/api/tts',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({text:textEl.value,voice:voiceEl.value})
+ });
+ const b=await r.blob();
+ const u=URL.createObjectURL(b);
+ audioEl.src=u;
+ dl.href=u;
+ dl.style.display='inline';
+};
